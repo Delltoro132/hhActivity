@@ -91,14 +91,13 @@ def start_program(message):
             print("Захожу най сайт hh...")
             time.sleep(2)
             enter_button = driver.find_element(By.XPATH,
-                                               "/html/body/div[7]/div[1]/div[2]/div/div[1]/div[1]/div/div[6]/a")
+                                               "/html/body/div[7]/div/div[1]/div[1]/div/div[6]/a")
             enter_button.click()
 
             # find and clik on "Войти с паролем"
             time.sleep(3)
             more_form = driver.find_element(By.XPATH,
-                                            "/html/body/div[7]/div[1]/div[3]/div/div/div/div/div/div/div[1]/div["
-                                            "1]/div[1]/div[2]/div/div/form/div[4]/button[2]")
+                                            "/html/body/div[8]/div/div/div[1]/div/div/div/div/div/div[1]/div[1]/div[1]/div[2]/div/div/form/div[4]/button[2]")
             more_form.click()
 
             # find and enter login
@@ -106,8 +105,8 @@ def start_program(message):
             print("Ввожу данные...")
             time.sleep(2)
             phone_input = driver.find_element(By.XPATH,
-                                              "/html/body/div[7]/div[1]/div[3]/div/div/div/div/div/div/div[1]/div["
-                                              "1]/div[1]/div[2]/div/form/div[1]/input")
+                                              "/html/body/div[8]/div/div/div[1]/div/div/div/div/div/div[1]/div[1]/div[1]/div[2]/div/form/div[1]/input")
+
             phone_input.send_keys(Keys.CONTROL + "a")
             phone_input.send_keys(Keys.ENTER)
 
@@ -116,16 +115,15 @@ def start_program(message):
             # find and enter password
             time.sleep(2)
             password_input = driver.find_element(By.XPATH,
-                                                 "/html/body/div[7]/div[1]/div[3]/div/div/div/div/div/div/div[1]/div["
-                                                 "1]/div[1]/div[2]/div/form/div[2]/span/input")
+                                                 "/html/body/div[8]/div/div/div[1]/div/div/div/div/div/div[1]/div[1]/div[1]/div[2]/div/form/div[2]/span/input")
             password_input.clear()
             password_input.send_keys(info_list["user_password"])
 
             # enter
             time.sleep(2)
             button_enter = driver.find_element(By.XPATH,
-                                               "/html/body/div[7]/div[1]/div[3]/div/div/div/div/div/div/div[1]/div["
-                                               "1]/div[1]/div[2]/div/form/div[4]/div/button[1]")
+                                               "/html/body/div[8]/div/div/div[1]/div/div/div/div/div/div[1]/div[1]/div[1]/div[2]/div/form/div[4]/div/button[1]/span")
+
             button_enter.click()
             bot.send_message(message.chat.id, "Я залогинился!")
             print("Я залогинился!")
@@ -134,7 +132,7 @@ def start_program(message):
             bot.send_message(message.chat.id, 'Захожу в раздел "Моё резюме"...')
             print('Захожу в раздел "Моё резюме"...')
             time.sleep(2)
-            next_page = driver.find_element(By.XPATH, "/html/body/div[6]/div[1]/div/div/div[1]/div[1]/a")
+            next_page = driver.find_element(By.XPATH, "/html/body/div[6]/div[1]/div/div/div/div[1]/a")
             next_page.click()
 
             # click on "Поднять в поиске"
@@ -156,11 +154,11 @@ def start_program(message):
 
             # exit
             exit_button = driver.find_element(By.XPATH,
-                                              "/html/body/div[6]/div[1]/div/div/div[1]/div[10]/div[1]/span/button/span")
+                                              "/html/body/div[6]/div[1]/div/div/div/div[10]/div[1]/span/button/span")
             exit_button.click()
             time.sleep(2)
 
-            exit_button = driver.find_element(By.XPATH, "/html/body/div[11]/div/div[2]/div[3]/form/input[1]")
+            exit_button = driver.find_element(By.XPATH, "/html/body/div[13]/div/div[2]/div[3]/form/input[1]")
             exit_button.click()
 
         except Exception as ex:
@@ -169,7 +167,7 @@ def start_program(message):
             bot.send_message(message.chat.id, "Я вышел!")
             info_list["session"] += 1
             bot.send_message(message.chat.id, f'Сессия {info_list["session"]} завершена! Повтор через 4 ч.')
-            print(f'Сессия {info_list["session"]} завершена! Повтор через 2 ч.')
+            print(f'Сессия {info_list["session"]} завершена! Повтор через 4 ч.')
 
         time.sleep(14400)
 
