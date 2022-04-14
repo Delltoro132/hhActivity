@@ -26,9 +26,6 @@ driver = webdriver.Chrome(
     executable_path=driver_path,
     options=options)
 
-# user_name = "89312805619"
-# user_password = "AquaThor132"
-
 bot = telebot.TeleBot(conf.TOKEN)
 
 
